@@ -4,7 +4,9 @@ const { schema, root } = require('./graphql');
 
 const app = express();
 
-
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Backend is running successfully!' });
+});
 app.use('/graphql', graphqlHTTP({
   schema: schema,
   rootValue: root,
